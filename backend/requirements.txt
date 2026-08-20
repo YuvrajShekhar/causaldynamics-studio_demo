@@ -1,0 +1,8 @@
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+pydantic==2.10.3
+python-multipart==0.0.19
+
+# The real, published kausable package (github.com/kausable/CausalDynamics)
+# Note: this pulls in torch, jax, dysts, numba etc. -> first build is slow (5-10 min) and the image is large.
+causaldynamics==1.0.0

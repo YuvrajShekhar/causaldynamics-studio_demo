@@ -1,0 +1,19 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8001:8000"
+    environment:
+      - ALLOWED_ORIGINS=http://localhost:5173,http://localhost:4173,https://humble-courtesy-production-056e.up.railway.app
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: http://localhost:8001
+    ports:
+      - "4173:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
